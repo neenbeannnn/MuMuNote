@@ -1,0 +1,75 @@
+@use "sass:map";
+
+$colors: (
+    "dark": #463F3A,
+    "light": #F4F3EE,
+    "primary": #8A817C,
+    "secondary": #BCB8B1,
+    "accent": #F59AFF
+);
+
+$font-primary: 'Cabin', sans-serif;
+
+@mixin heading-1 {
+    /*Positioning*/
+    /*Box Model*/
+    margin: 5px 0;
+    /*Color*/
+    /*Typography*/
+    font-size: 50px;
+    font-weight: normal;
+    font-family: $font-primary;
+    /*Cursor*/
+    -webkit-user-select: none;
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;
+    /*Pseudo-classes*/
+}
+
+@mixin heading-2 {
+    /*Positioning*/
+    /*Box Model*/
+    margin: 5px 0;
+    /*Color*/
+    /*Typography*/
+    font-size: 25px;
+    font-weight: normal;
+    font-family: $font-primary;
+    /*Cursor*/
+    -webkit-user-select: none;
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;
+    /*Pseudo-classes*/
+}
+
+@mixin heading-3 {
+    /*Positioning*/
+    /*Box Model*/
+    margin: 5px 0;
+    /*Color*/
+    /*Typography*/
+    font-size: 15px;
+    font-weight: normal;
+    font-family: $font-primary;
+    /*Cursor*/
+    -webkit-user-select: none;
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;
+    /*Pseudo-classes*/
+}
+
+@mixin link {
+    /*Positioning*/
+    /*Box Model*/
+    /*Color*/
+    /*Typography*/
+    text-decoration: underline;
+    /*Pseudo-classes*/
+    &:hover {
+        color: map.get($colors, "accent");
+        cursor: pointer;
+    }
+}

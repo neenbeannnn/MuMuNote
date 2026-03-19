@@ -1,0 +1,52 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.pageContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*Box Model*/
+    padding: 2.5% 5%;
+    /*Color*/
+    color: map.get($colors, "light") 
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+    
+}
+
+.popup {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*Box Model*/
+    height: 400px;
+    width: 300px;
+    margin-top: 100px;
+    padding: 5%;
+    border-radius: 25px;
+    /*Color*/
+    background-color: map.get($colors, "primary");
+    box-shadow: 25px 25px 0 map.get($colors, "dark");
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.loginTitle {
+    @include heading-1;
+}
+
+.loginNoAccount {
+    @include heading-3;
+}
+
+.loginLink {
+    @include link;
+}

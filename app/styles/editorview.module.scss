@@ -1,0 +1,37 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.pageContainer {
+    /*Positioning*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    /*Box Model*/
+    /*Color*/
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.title {
+    color: map.get($colors, "accent");
+}
+
+.textEditor {
+    /*Positioning*/
+    /*Box Model*/
+    width: 90%;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    border: 2px solid map.get($colors, "primary");
+    outline: none;
+    border-radius: 10px;
+    /*Color*/
+    /*Typography*/
+    font-size: 16px;
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
