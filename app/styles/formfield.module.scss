@@ -1,0 +1,39 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.formField {
+    /*Positioning*/
+
+    /*Box Model*/
+    height: 40px;
+    width: 100%;
+    border: 0;
+    border-bottom: 3px solid map.get($colors, "dark");
+    padding: 0;
+    padding-left: 5px;
+    margin-top: 10px!important;
+    /*Color*/
+    background-color: transparent;
+    /*Typography*/
+    color: map.get($colors, "light");
+    @include heading-2;
+    /*Cursor*/
+    /*Pseudo-classes*/
+    &::placeholder {
+        /*Color*/
+        color: map.get($colors, "light");
+        /*Typography*/
+        @include heading-2;
+        /*Cursor*/
+
+        /*Pseudo-classes*/
+
+    }
+    &:hover {
+        border-bottom: 3px solid map.get($colors, "accent");
+    }
+    &:focus {
+        outline: 0;
+        border-bottom: 3px solid map.get($colors, "accent");
+    }
+}

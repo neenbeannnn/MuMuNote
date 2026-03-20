@@ -50,3 +50,20 @@
 .loginLink {
     @include link;
 }
+
+.loginFormContainer {
+    /*Positioning*/
+
+    /*Box Model*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}

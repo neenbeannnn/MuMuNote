@@ -1,0 +1,26 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.formButton {
+    /*Positioning*/
+    /*Box Model*/
+    width: 70%;
+    padding: 10;
+    margin: 0 auto;
+    border: 3px solid map.get($colors, "light");
+    border-radius: 15px;
+    /*Color*/
+    background-color: map.get($colors, "light");
+    /*Typography*/
+    color: map.get($colors, "accent");
+    font-size: 20px;
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+    &:hover {
+        /*Box Model*/
+        border: 3px solid map.get($colors, "accent");
+        /*Color*/
+        background-color: map.get($colors, "dark"); 
+    }
+}

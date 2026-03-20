@@ -1,6 +1,9 @@
 "use client";
 import styles from "../styles/loginview.module.scss";
+import FormField from "./FormField";
+import FormButton from "./FormButton";
 import Image from "next/image";
+import Form from "next/form";
 
 export default function LoginView() {
     return <div className={styles.pageContainer}>
@@ -18,6 +21,31 @@ export default function LoginView() {
             Don't have an account yet?&nbsp;
             <a className={styles.loginLink}>Create one!</a>
         </h3>
+        <Form
+            id="login-form"
+            action="/search"
+            className={styles.loginFormContainer}
+        >
+            <FormField
+            type="text"
+            id="login-username"
+            name="login-username"
+            required={true}
+            placeholder="Username"
+        />
+        <FormField
+            type="password"
+            id="login-password"
+            name="login-password"
+            required={true}
+            placeholder="Password"
+        />
+        <FormButton
+            value="Login"
+            name="login-button"
+            form="login-form"
+        ></FormButton>
+        </Form>
       </div>
     </div>
 }
