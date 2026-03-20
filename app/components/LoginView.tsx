@@ -12,6 +12,7 @@ export default function LoginView() {
         alt="MuMuNote logo"
         height = {90}
         width = {250}
+        draggable={false}
       />
       <div className={styles.popup}>
         <h1 className={styles.loginTitle}>

@@ -29,6 +29,10 @@
         /*Pseudo-classes*/
 
     }
+    &::selection {
+        background: map.get($colors, "accent");
+        color: map.get($colors, "light");
+    }
     &:hover {
         border-bottom: 3px solid map.get($colors, "accent");
     }

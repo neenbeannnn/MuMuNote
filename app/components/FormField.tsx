@@ -30,6 +30,7 @@ export default function FormField({
             minLength={minLength}
             maxLength={maxLength}
             placeholder={placeholder}
+            spellCheck={false}
         />
     )
 };
