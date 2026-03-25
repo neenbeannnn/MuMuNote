@@ -59,7 +59,7 @@ export default function LoginView() {
             value="Login"
             name="login-button"
             form="login-form"
-        ></FormButton>
+        />
         </Form>
       </div>
     </div>

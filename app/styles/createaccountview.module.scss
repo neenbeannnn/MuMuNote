@@ -13,7 +13,7 @@
     /*Typography*/
     color: map.get($colors, "light") 
     /*Cursor*/
-    
+
     /*Pseudo-classes*/
     
 }
@@ -25,9 +25,9 @@
     justify-content: flex-start;
     align-items: center;
     /*Box Model*/
-    height: 400px;
-    width: 300px;
-    margin-top: 100px;
+    height: 450px;
+    width: 400px;
+    margin-top: 60px;
     padding: 5%;
     border-radius: 25px;
     /*Color*/
@@ -35,6 +35,24 @@
     box-shadow: 25px 25px 0 map.get($colors, "dark");
     /*Typography*/
     /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.createAccountForm {
+    /*Positioning*/
+
+    /*Box Model*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
     /*Pseudo-classes*/
 }
 
