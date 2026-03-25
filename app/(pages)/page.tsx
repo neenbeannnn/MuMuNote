@@ -1,11 +1,10 @@
 "use client";
-import LoginView from "./components/LoginView"
-
+import Login from "./login/page";
 
 export default function Home() {
   return (
     <div>
-      <LoginView />
+      <Login/>
     </div>
   );
 }

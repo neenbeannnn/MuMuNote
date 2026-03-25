@@ -69,6 +69,7 @@ html {
     /*Positioning*/
     /*Box Model*/
     /*Color*/
+    color: map-get($colors, "light");
     /*Typography*/
     text-decoration: underline;
     /*Pseudo-classes*/

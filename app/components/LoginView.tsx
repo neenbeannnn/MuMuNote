@@ -4,6 +4,7 @@ import FormField from "./FormField";
 import FormButton from "./FormButton";
 import Image from "next/image";
 import Form from "next/form";
+import Link from 'next/link';
 
 export default function LoginView() {
     return <div className={styles.pageContainer}>
@@ -20,7 +21,12 @@ export default function LoginView() {
         </h1>
         <h3 className={styles.loginNoAccount}>
             Don't have an account yet?&nbsp;
-            <a className={styles.loginLink}>Create one!</a>
+            <Link 
+                href="/createaccount"
+                className={styles.loginLink}
+            >
+                Create one!
+            </Link>
         </h3>
         <Form
             id="login-form"
@@ -28,19 +34,27 @@ export default function LoginView() {
             className={styles.loginFormContainer}
         >
             <FormField
-            type="text"
-            id="login-username"
-            name="login-username"
-            required={true}
-            placeholder="Username"
+                type="text"
+                id="login-username"
+                name="login-username"
+                required={true}
+                placeholder="Username"
         />
-        <FormField
-            type="password"
-            id="login-password"
-            name="login-password"
-            required={true}
-            placeholder="Password"
-        />
+        <div>
+            <FormField
+                type="password"
+                id="login-password"
+                name="login-password"
+                required={true}
+                placeholder="Password"
+            />
+            <Link 
+                href="/forgotpassword"
+                className={styles.loginLink}
+            >
+                Forgot your password?
+            </Link>
+        </div>
         <FormButton
             value="Login"
             name="login-button"
