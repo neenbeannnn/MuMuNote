@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {Cabin} from "next/font/google"
+import { UserProvider } from "../context/UserContext";
 
 const cabin = Cabin({
   subsets: ['latin'],
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body
         className={cabin.className}
       >
-        {children}
+        <UserProvider>
+          {children}
+        </UserProvider>
       </body>
     </html>
   );

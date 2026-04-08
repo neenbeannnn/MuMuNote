@@ -1,0 +1,51 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+
+.pageContainer {
+    /*Positioning*/
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*Box Model*/
+    width: inherit;
+    min-height: inherit;
+    padding: 9px;
+    /*Color*/
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+.topContainer { 
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*Box Model*/
+    width: inherit;
+    /*Color*/
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.notebookTitle {
+    span { color: map-get($colors, "accent") }
+}
+
+.divider {
+    /*Positioning*/
+    /*Box Model*/
+    margin-left: -9px;
+    width: calc(100% + 18px);
+    border: none;
+    border-top: 3px solid map.get($colors, "secondary");
+    /*Color*/
+
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
