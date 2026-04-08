@@ -3,6 +3,7 @@
 
 .containerWrapper {
     /*Positioning*/
+    flex-shrink: 0;
     /*Box Model*/
     height: inherit;
     overflow: hidden;
@@ -13,6 +14,7 @@
     /*Cursor*/
     /*Pseudo-classes*/
 }
+
 .pageContainer {
     /*Positioning*/
     display: flex;
@@ -21,6 +23,7 @@
     align-items: flex-start;
     /*Box Model*/
     height: inherit;
+    width: 200px;
     padding: 9px;
     border-right: 3px solid map.get($colors, "secondary");
     /*Color*/
@@ -44,7 +47,12 @@
     background-color: map.get($colors, "secondary");
     /*Typography*/
     /*Cursor*/
+    cursor: pointer;
     /*Pseudo-classes*/
+
+    &:hover {
+        color: map.get($colors, "light");
+    }
 }
 
 .topContainer {
@@ -67,6 +75,15 @@
     /*Typography*/
     /*Cursor*/
     /*Pseudo-classes*/
+}
+
+.collapseIn {
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+    &:hover {
+        color: map.get($colors, "accent");
+    }
 }
 
 .mumunoteLogo {

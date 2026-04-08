@@ -6,6 +6,7 @@ import LastPage from "@mui/icons-material/LastPage";
 import {useEffect, useState} from "react";
 import {useUser} from '../context/UserContext';
 import {supabase} from "../lib/supabaseClient";
+import {AnimatePresence, motion} from "framer-motion";
 
 export default function LeftPanel() {
     const {user} = useUser();
@@ -26,31 +27,51 @@ export default function LeftPanel() {
         fetchProfile();
     }, [user]);
 
-    return <div className={styles.containerWrapper}>{isCollapsed ? (<div className={styles.collapsedContainer}>
-            <LastPage 
-                sx={{fontSize: 30,}}
-                onClick={() => setIsCollapsed(false)}
-        />
-    </div>) : (
-        <div className={styles.pageContainer}>
-            <div className={styles.topContainer}>
-                <div className={styles.topInnerContainer}>
-                    <Image 
-                        src="/assets/mumunote-logo.png"
-                        alt="MuMuNote logo"
-                        height = {64}
-                        width = {50}
-                        draggable={false}
-                        className={styles.mumunoteLogo}
-                    />
-                    <FirstPage 
+    return <div className={styles.containerWrapper}>
+        <AnimatePresence mode = "wait">
+            {isCollapsed ? (
+                <motion.div 
+                    key="collapsed"
+                    className={styles.collapsedContainer} 
+                    onClick={() => setIsCollapsed(false)}
+                    animate={{x: 0, opacity: 1}}
+                    exit={{x: "-100%", opacity: 0}}
+                    transition={{duration: 0.3, ease: "easeInOut"}}
+                >
+                    <LastPage 
                         sx={{fontSize: 30,}}
-                        onClick={() => setIsCollapsed(true)}
                     />
+                </motion.div>) 
+            : 
+            (<motion.div
+                key="expanded" 
+                className={styles.pageContainer}
+                initial={{x: "-100%", opacity: 0.3}}
+                animate={{x: 0, opacity: 1}}
+                exit={{x: "-100%", opacity: 0}}
+                transition={{duration: 0.3, ease: "easeInOut"}}
+            >
+                <div className={styles.topContainer}>
+                    <div className={styles.topInnerContainer}>
+                        <Image 
+                            src="/assets/mumunote-logo.png"
+                            alt="MuMuNote logo"
+                            height = {64}
+                            width = {50}
+                            draggable={false}
+                            className={styles.mumunoteLogo}
+                        />
+                        <FirstPage 
+                            sx={{fontSize: 30,}}
+                            onClick={() => setIsCollapsed(true)}
+                            className={styles.collapseIn}
+                        />
+                    </div>
+                    <h3 className={styles.happyStudyingText}>Happy studying, {username}!</h3>
+                    <hr className={styles.divider}/>
                 </div>
-                <h3 className={styles.happyStudyingText}>Happy studying, {username}!</h3>
-                <hr className={styles.divider}/>
-            </div>
-        </div>)}
+            </motion.div>
+        )}
+        </AnimatePresence>
     </div>;
 }
