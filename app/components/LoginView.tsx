@@ -17,14 +17,24 @@ export default function LoginView() {
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const {data, error} = await supabase.auth.signInWithPassword({email, password});
+        console.log("email: ", email);
+        console.log("password: ", password);
+
+        const {data, error} = await supabase.auth.signInWithPassword({email: email, password: password});
 
         //if supabase has an error
         if (error) {
             setError(error.message ?? "An error occurred on our end. Try again.");
         }
 
-        router.push('/mynotebooks');
+        const {data: {session}} = await supabase.auth.getSession();
+
+        if (session) {
+            //status message
+            console.log("Login was successful.");
+            router.push('/mynotebooks');
+        }
+        
     };
 
     return <div className={styles.pageContainer}>
@@ -59,6 +69,8 @@ export default function LoginView() {
                 name="login-email"
                 required={true}
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
         />
         <div>
             <FormField
@@ -67,6 +79,8 @@ export default function LoginView() {
                 name="login-password"
                 required={true}
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
             />
             <Link 
                 href="/forgotpassword"

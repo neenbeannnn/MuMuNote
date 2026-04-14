@@ -1,0 +1,67 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.notebookContainer {
+    /*Positioning*/
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /*Box Model*/
+    height: 350px;
+    width: 280px;
+    margin: 2%;
+    padding-left: 3px;
+    /*Color*/
+    background-color: map.get($colors, "primary");
+    box-shadow: 10px 10px 0 map.get($colors, "dark");
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.whiteStripe {
+    /*Positioning*/
+    /*Box Model*/
+    width: 3px;
+    height: 100%;
+    /*Color*/
+    background-color: map.get($colors, "light");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.notebookTitle {
+    @include heading-2;
+    /*Positioning*/
+    position: relative;
+    flex: 1;
+    align-self: flex-start;
+    /*Box Model*/
+    margin-top: 50px;
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    text-align: center;
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.noteCounter {
+    @include heading-3;
+    /*Positioning*/
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    /*Box Model*/
+    margin-right: 5px;
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}

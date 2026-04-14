@@ -3,16 +3,20 @@ import styles from "../styles/leftpanel.module.scss";
 import Image from "next/image";
 import FirstPage from "@mui/icons-material/FirstPage";
 import LastPage from "@mui/icons-material/LastPage";
+import Logout from "@mui/icons-material/Logout";
 import {useEffect, useState} from "react";
 import {useUser} from '../context/UserContext';
 import {supabase} from "../lib/supabaseClient";
 import {AnimatePresence, motion} from "framer-motion";
+import {useRouter} from "next/navigation";
 
 export default function LeftPanel() {
     const {user} = useUser();
+    const router = useRouter();
     const [username, setUsername] = useState<string | null>(null);
     const [isCollapsed, setIsCollapsed] = useState(false);
 
+    //fetch the user's profile + username
     useEffect(() => {
         const fetchProfile = async () => {
             if (!user) return;
@@ -23,9 +27,14 @@ export default function LeftPanel() {
             }
             setUsername(data.username);
         };
-
         fetchProfile();
-    }, [user]);
+    }, [user?.id]);
+
+    //handle signing out of the current user
+    const handleSignOut = async () => {
+        await supabase.auth.signOut();
+        router.push("/login");
+    }
 
     return <div className={styles.containerWrapper}>
         <AnimatePresence mode = "wait">
@@ -69,6 +78,13 @@ export default function LeftPanel() {
                     </div>
                     <h3 className={styles.happyStudyingText}>Happy studying, {username}!</h3>
                     <hr className={styles.divider}/>
+                </div>
+                <div className={styles.footerContainer}>
+                    <Logout
+                        sx={{fontSize: 30,}}
+                        onClick={handleSignOut}
+                        className={styles.logoutIcon}
+                    />
                 </div>
             </motion.div>
         )}

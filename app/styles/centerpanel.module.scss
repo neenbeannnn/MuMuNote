@@ -1,7 +1,6 @@
 @use './theme.scss' as *;
 @use 'sass:map';
 
-
 .pageContainer {
     /*Positioning*/
     flex: 1;
@@ -47,5 +46,24 @@
 
     /*Typography*/
     /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.notebookContainer {
+    /*Positioning*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*Box Model*/
+    width: inherit;
+    height: 100%;
+    overflow-y: auto;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
     /*Pseudo-classes*/
 }

@@ -21,6 +21,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
     /*Box Model*/
     height: inherit;
     width: 200px;
@@ -109,6 +110,8 @@
 
 .divider {
     /*Positioning*/
+    align-self: flex-end;
+    justify-self: flex-end;
     /*Box Model*/
     margin-left: -9px;
     width: calc(100% + 18px);
@@ -119,4 +122,32 @@
     /*Typography*/
     /*Cursor*/
     /*Pseudo-classes*/
+}
+
+.footerContainer {
+    /*Positioning*/
+    position: absolute;
+    bottom: 18px;
+    /*Box Model*/
+    margin-left: -9px;
+    width: calc(100% + 9px);
+    padding: 7% 5%;
+    /*Color*/
+    background-color: map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+
+}
+
+.logoutIcon {
+    transition: color 0.5s ease-in-out;
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+    &:hover {
+        color: map.get($colors, "light");
+    }
 }
