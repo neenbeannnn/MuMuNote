@@ -41,3 +41,45 @@
         border-bottom: 3px solid map.get($colors, "accent");
     }
 }
+
+//Notebook Title Field
+.notebookTitleField {
+    /*Positioning*/
+
+    /*Box Model*/
+    height: 40px;
+    width: 80%;
+    border: 0;
+    border-bottom: 3px solid map.get($colors, "accent");
+    padding: 0;
+    padding-left: 5px;
+    margin-top: 0!important;
+    /*Color*/
+    background-color: transparent;
+    /*Typography*/
+    color: map.get($colors, "primary");
+    @include heading-2;
+    /*Cursor*/
+    /*Pseudo-classes*/
+    &::placeholder {
+        /*Color*/
+        color: map.get($colors, "primary");
+        /*Typography*/
+        @include heading-2;
+        /*Cursor*/
+
+        /*Pseudo-classes*/
+
+    }
+    &::selection {
+        background: map.get($colors, "secondary");
+        color: map.get($colors, "primary");
+    }
+    &:hover {
+        border-bottom: 3px solid map.get($colors, "accent");
+    }
+    &:focus {
+        outline: 0;
+        border-bottom: 3px solid map.get($colors, "accent");
+    }
+}

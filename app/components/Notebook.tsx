@@ -1,14 +1,14 @@
 import styles from "../styles/notebook.module.scss";
 
 type NotebookProps = {
-    key: string,
+    id: string,
     title: string,
     noteCount: number
 };
 
-export default function Notebook({key, title, noteCount} : NotebookProps) {
+export default function Notebook({id, title, noteCount} : NotebookProps) {
     return <div 
-        key={key}
+        key={id}
         className={styles.notebookContainer}
     >
         <div className={styles.whiteStripe}/>
