@@ -114,13 +114,106 @@
     justify-self: flex-end;
     /*Box Model*/
     margin-left: -9px;
+    margin-bottom: 0;
     width: calc(100% + 18px);
     border: none;
-    border-top: 3px solid map.get($colors, "secondary");
+    border-top: 3px solid map.get($colors, "primary");
     /*Color*/
 
     /*Typography*/
     /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.middleContainer {
+    /*Positioning*/
+
+    /*Box Model*/
+    width: 100%;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.notebookTitleContainer {
+    /*Positioning*/
+
+    /*Box Model*/
+    margin-left: -9px;
+    width: 100%;
+    padding: 8px 9px;
+    /*Color*/
+    background-color: map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.notebookTitle {
+    /*Positioning*/
+
+    /*Box Model*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-2;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.actionContainer {
+    /*Positioning*/
+    display: flex;
+    justify-content: space-between;
+    /*Box Model*/
+    width: 100%;
+    margin-left: -9px;
+    padding: 8px 9px;
+    /*Color*/
+    background-color: map.get($colors, "accent");
+    color: map.get($colors, "light");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.filterList {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+}
+
+.libraryAdd {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+    cursor: pointer;
     /*Pseudo-classes*/
 }
 

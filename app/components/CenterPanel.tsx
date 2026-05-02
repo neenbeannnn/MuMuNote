@@ -3,6 +3,7 @@ import styles from "../styles/centerpanel.module.scss";
 import {ViewType} from "../types/ViewType";
 import Notebook from "./Notebook";
 import NewNotebook from "./NewNotebook";
+import UploadNote from "../components/UploadNote";
 import {useEffect, useState} from "react";
 import {useUser} from '../context/UserContext';
 import {useRouter} from "next/navigation";
@@ -10,6 +11,7 @@ import {supabase} from "../lib/supabaseClient";
 
 type CenterPanelProps = {
     currentView: ViewType;
+    setCurrentView: (view: ViewType) => void;
 }
 
 type NotebookType = {
@@ -18,7 +20,7 @@ type NotebookType = {
     note_counter: number;
 }
 
-export default function CenterPanel({currentView} : CenterPanelProps) {
+export default function CenterPanel({currentView, setCurrentView} : CenterPanelProps) {
     const {user} = useUser();
     const [username, setUsername] = useState<string | null>(null);
     const [notebooks, setNotebooks] = useState<NotebookType[]>([]);
@@ -80,8 +82,8 @@ export default function CenterPanel({currentView} : CenterPanelProps) {
                 </div>
                 );
             case ViewType.UPLOAD_NOTE:
-                return (<div className={styles.pageContainer}>
-
+                return (<div className={styles.uploadNoteContainer}>
+                    <UploadNote />
                 </div>);
         }
     }

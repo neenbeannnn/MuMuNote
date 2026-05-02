@@ -1,0 +1,153 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.popup {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*Box Model*/
+    width: 500px;
+    margin-top: -25px;
+    padding: 5%;
+    border-radius: 25px;
+    /*Color*/
+    background-color: map.get($colors, "primary");
+    box-shadow: 25px 25px 0 map.get($colors, "dark");
+    /*Typography*/
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.title {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-1;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.fileTypeText {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-3;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.fileDropContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*Box Model*/
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border: 3px solid map.get($colors, "accent");
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+}
+
+.dragging {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    border-color: map.get($colors, "dark")
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.hiddenInput {
+    /*Positioning*/
+    display: none;
+    /*Box Model*/
+
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.uploadFileIcon {
+    /*Positioning*/
+
+    /*Box Model*/
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.fileName, .browseText {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-3;
+    /*Cursor*/
+
+    /*Pseudo-classes*/ 
+}
+
+.blankNoteText {
+    /*Positioning*/
+
+    /*Box Model*/
+    margin: 20px 0!important;
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-3;
+    /*Cursor*/
+
+    /*Pseudo-classes*/   
+}
+
+.blankNoteUnderline {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "accent");
+    /*Typography*/
+    @include heading-3;
+    text-decoration: underline;
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/   
+}

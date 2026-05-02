@@ -4,12 +4,20 @@ import {ViewType} from "../types/ViewType";
 import {useEffect, useState} from "react";
 import {useUser} from '../context/UserContext';
 import {supabase} from "../lib/supabaseClient";
+import {useParams} from "next/navigation";
 import LeftPanel from './LeftPanel';
 import CenterPanel from './CenterPanel';
 
 export default function MyNotesView() {
+    const params = useParams();
+    console.log("all params: ", params);
+    console.log("notebookID: ", params.notebookId);
+
     const {user} = useUser();
     const [username, setUsername] = useState<string | null>(null);
+
+    //get the notebookId from the URL
+    const {notebookId} = useParams();
 
     //uses the enum ViewType
     const [currentView, setCurrentView] = useState<ViewType>(ViewType.NOTE);   
@@ -30,8 +38,15 @@ export default function MyNotesView() {
 
     return <div className={styles.pageContainer}>
         <div className={styles.bodyContainer}>
-            <LeftPanel/>
-            <CenterPanel currentView={currentView}/>
+            <LeftPanel 
+                view="notes" 
+                notebookId = {notebookId as string}
+                setCurrentView={setCurrentView}
+            />
+            <CenterPanel 
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+            />
         </div>
     </div>;
 }
