@@ -48,7 +48,6 @@ export default function LeftPanel({view = "notebooks", notebookId, setCurrentVie
 
     //fetch the notebook title
     useEffect(() => {
-        console.log("notebookID prop received: ", notebookId);
         const fetchNotebookTitle = async () => {
             if (!notebookId) {
                 console.log("notebookID is empty, skipping fetch");

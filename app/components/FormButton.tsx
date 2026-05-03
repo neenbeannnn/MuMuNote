@@ -6,13 +6,15 @@ type FormButtonProps = {
     name: string;
     disabled?: boolean;
     form: string;
+    onClick?: () => void;
 }
 
 export default function FormButton({
     value,
     name,
     disabled,
-    form
+    form,
+    onClick
 }: FormButtonProps) {
     return (
     <input
@@ -22,6 +24,7 @@ export default function FormButton({
         name={name}
         disabled={disabled}
         form={form}
+        onClick={onClick}
     >
     </input>);
 }

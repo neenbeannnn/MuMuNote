@@ -1,4 +1,4 @@
-//3 different views
+//4 different views to control the Left, Center, Right Panel layouts
 export enum ViewType {
     NOTEBOOK = "notebook",
     NOTE = "note",

@@ -10,8 +10,6 @@ import CenterPanel from './CenterPanel';
 
 export default function MyNotesView() {
     const params = useParams();
-    console.log("all params: ", params);
-    console.log("notebookID: ", params.notebookId);
 
     const {user} = useUser();
     const [username, setUsername] = useState<string | null>(null);

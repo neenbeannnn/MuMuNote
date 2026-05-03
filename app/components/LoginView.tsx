@@ -17,9 +17,6 @@ export default function LoginView() {
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log("email: ", email);
-        console.log("password: ", password);
-
         const {data, error} = await supabase.auth.signInWithPassword({email: email, password: password});
 
         //if supabase has an error
