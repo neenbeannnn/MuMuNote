@@ -1,0 +1,86 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+@use 'sass:color';
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    position: relative;
+    width: 60%;
+
+    &.selecting {
+        cursor: crosshair;
+    }
+}
+
+.slideImage {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.selectionBox {
+    /*Positioning*/
+    position: absolute;
+    /*Box Model*/
+    border-radius: 10px;
+    /*Color*/
+    background-color: color.adjust(map.get($colors, "accent"), $alpha: -0.5);
+    border-radius: 10px;
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+    pointer-events: none;
+}
+
+.translationOverlay {
+    position: absolute;
+    background-color: map.get($colors, "dark");
+    color: map.get($colors, "light");
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: map.get($colors, "light");
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.translationText {
+    margin: 0;
+    padding-right: 16px;
+    line-height: 1.5;
+}
+
+.loadingOverlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingText {
+    color: map.get($colors, "light");
+    font-size: 0.85rem;
+    margin: 0;
+}

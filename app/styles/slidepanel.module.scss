@@ -48,12 +48,16 @@
 
 .noteHeader {
     /*Positioning*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     /*Box Model*/
     padding: 9px;
-    /*Color*/
     border-bottom: 3px solid map.get($colors, "secondary");
+    /*Color*/
+    background-color: map.get($colors, "light");
     /*Typography*/
 
     /*Cursor*/
@@ -129,9 +133,7 @@
 
 .slideImage {
     /*Positioning*/
-
     /*Box Model*/
-    width: 50%;
     /*Color*/
     box-shadow: 0 2px 3px map.get($colors, "secondary");
     /*Typography*/
@@ -139,7 +141,6 @@
     /*Cursor*/
 
     /*Pseudo-classes*/
-    flex-shrink: 0;
 }
 
 .editorContainer {

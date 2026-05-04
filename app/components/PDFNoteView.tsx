@@ -20,12 +20,21 @@ type NoteContent = { //holds information about the note overall
     title: string;
     pdf_id: string | null;
     slides: SlideNote[];
+    translations: {[slideIndex: number]: {selection: SelectionBox, text: string} | null};
 }
 
 //if a slide doesn't have notes associated with it yet
 const EMPTY_SLIDE_NOTE = [
     {type: "paragraph", children: [{text: ""}]}
 ];
+
+//TODO add this and all types to the types folder
+type SelectionBox = {
+    x: number; //x and y are for upper left corner
+    y: number;
+    width: number;
+    height: number;
+}
 
 type NoteAnalysis = {
     page_number: number;
@@ -38,6 +47,7 @@ export default function PDFNoteView({notebookId, noteId}: PDFNoteViewProps) {
     const [note, setNote] = useState<NoteContent | null>(null);
     const [slideImages, setSlideImages] = useState<string[]>([]);
     const [analysis, setAnalysis] = useState<NoteAnalysis[]>([]);
+    const [translations, setTranslations] = useState<{[slideIndex: number]: {selection: SelectionBox, text: string} | null}>({});
 
 
     useEffect(() => {
@@ -47,18 +57,21 @@ export default function PDFNoteView({notebookId, noteId}: PDFNoteViewProps) {
             //fetch note from supabase Notes table
             const {data : noteData, error : noteError} = await supabase
                 .from("Notes")
-                .select("title, pdf_id, content")
+                .select("title, pdf_id, content, translations")
                 .eq("note_id", noteId)
                 .single();
             if (noteError) {
                 console.error("Error fetching note:", noteError.message);
                 return;
             }
+
+            //set the translations
+            if (noteData.translations) setTranslations(noteData.translations);
             
             //fetch analysis for this note
             if (noteData?.pdf_id) {
                 const {data, error} = await supabase
-                    .from("Noteanalyses")
+                    .from("NoteAnalyses")
                     .select("analysis")
                     .eq("pdf_id", noteData.pdf_id)
                     .single();
@@ -114,6 +127,7 @@ export default function PDFNoteView({notebookId, noteId}: PDFNoteViewProps) {
                             title: noteData.title,
                             pdf_id: noteData.pdf_id,
                             slides,
+                            translations: noteData.translations ?? {},
                         });
                     }
                 }
@@ -142,6 +156,8 @@ export default function PDFNoteView({notebookId, noteId}: PDFNoteViewProps) {
                                 )
                             } : prev);
                         }}
+                        translations={translations}
+                        onTranslationsChange={setTranslations}
                     />
                 </div>
             </div>
