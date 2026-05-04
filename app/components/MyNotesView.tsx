@@ -9,16 +9,12 @@ import LeftPanel from './LeftPanel';
 import CenterPanel from './CenterPanel';
 
 export default function MyNotesView() {
-    const params = useParams();
-
     const {user} = useUser();
     const [username, setUsername] = useState<string | null>(null);
+    const [currentView, setCurrentView] = useState<ViewType>(ViewType.NOTE);
 
     //get the notebookId from the URL
     const {notebookId} = useParams();
-
-    //uses the enum ViewType
-    const [currentView, setCurrentView] = useState<ViewType>(ViewType.NOTE);   
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -41,7 +37,7 @@ export default function MyNotesView() {
                 notebookId = {notebookId as string}
                 setCurrentView={setCurrentView}
             />
-            <CenterPanel 
+            <CenterPanel
                 currentView={currentView}
                 setCurrentView={setCurrentView}
             />

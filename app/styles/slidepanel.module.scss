@@ -1,0 +1,173 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.panelContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /*Box Model*/
+    min-height: 0;
+    overflow-y: auto;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.loadingHeader {
+    /*Positioning*/
+
+    /*Box Model*/
+    padding: 9px;
+    /*Color*/
+    border-bottom: 3px solid map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/   
+}
+
+.loadingText {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+
+    /*Typography*/
+    @include heading-2;
+    /*Cursor*/
+
+    /*Pseudo-classes*/ 
+}
+
+.noteHeader {
+    /*Positioning*/
+    display: flex;
+    justify-content: space-between;
+    /*Box Model*/
+    padding: 9px;
+    /*Color*/
+    border-bottom: 3px solid map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/   
+}
+
+.noteTitle {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+
+    /*Typography*/
+    @include heading-2;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.translateIconContainer {
+    /*Positioning*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Box Model*/
+    padding: 6px;
+    border-radius: 10px;
+    /*Color*/
+    color: map.get($colors, "dark");
+    background-color: map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+}
+
+.slidesContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    /*Box Model*/
+    padding: 2% 9px;;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.slideRow {
+    /*Positioning*/
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    /*Box Model*/
+    margin: 5px 0;
+    gap: 5px;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+    
+    
+}
+
+.slideImage {
+    /*Positioning*/
+
+    /*Box Model*/
+    width: 50%;
+    /*Color*/
+    box-shadow: 0 2px 3px map.get($colors, "secondary");
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+    flex-shrink: 0;
+}
+
+.editorContainer {
+    /*Positioning*/
+    flex: 1;
+    /*Box Model*/
+    border: 2px solid map.get($colors, "accent");
+    padding: 5px;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.editorPlaceholder {
+    /*Positioning*/
+
+    /*Box Model*/
+    
+    /*Color*/
+
+    /*Typography*/
+    @include normal-text;
+    margin: 0;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}

@@ -24,6 +24,7 @@ export default function LeftPanel({view = "notebooks", notebookId, setCurrentVie
     const router = useRouter();
     const [username, setUsername] = useState<string | null>(null);
     const [notebookTitle, setNotebookTitle] = useState<string | null>(null);
+    const [notes, setNotes] = useState<{note_id: string, title: string}[]>([]);
     const [isCollapsed, setIsCollapsed] = useState(false);
 
     //fetch the user's profile + username
@@ -71,6 +72,25 @@ export default function LeftPanel({view = "notebooks", notebookId, setCurrentVie
         fetchNotebookTitle();
     }, [notebookId]);
 
+    //fetch all the notes for a notebook
+    useEffect(() => {
+        const fetchNotes = async () => {
+            if (!notebookId || !user) return;
+            const {data, error} = await supabase 
+                .from("Notes")
+                .select("note_id, title")
+                .eq("notebook_id", notebookId)
+                .eq("author_id", user.id)
+                .order("note_created", {ascending: false});
+            if (error) {
+                console.error("Error fetching notes:", error.message);
+                return;
+            }
+            setNotes(data);
+        };
+        fetchNotes();
+    }, [notebookId, user?.id]);
+
     return <div className={styles.containerWrapper}>
         <AnimatePresence mode = "wait">
             {isCollapsed ? (
@@ -117,7 +137,6 @@ export default function LeftPanel({view = "notebooks", notebookId, setCurrentVie
                 <div className={styles.middleContainer}>
                     {view === "notebooks" && (
                         <div>
-                        
                         </div>
                     )}
                     {view === "notes" && (
@@ -135,6 +154,17 @@ export default function LeftPanel({view = "notebooks", notebookId, setCurrentVie
                                     className={styles.libraryAdd}
                                     onClick={() => setCurrentView?.(ViewType.UPLOAD_NOTE)}
                                 />
+                            </div>
+                            <div className={styles.noteListContainer}>
+                                {notes.map((note) => (
+                                    <div 
+                                        key={note.note_id} 
+                                        className={styles.noteCard}
+                                        onClick={() => router.push(`/notes/${notebookId}/${note.note_id}`)}
+                                    >
+                                        <p className={styles.noteTitle}>{note.title}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     )}

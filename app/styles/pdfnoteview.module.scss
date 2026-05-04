@@ -1,0 +1,36 @@
+@use './theme.scss' as *;
+@use 'sass:map';
+
+.pageContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*Box Model*/
+    padding: 1%;
+    /*Color*/
+    /*Typography*/
+    color: map.get($colors, "primary") 
+    /*Cursor*/
+    /*Pseudo-classes*/
+}
+
+.bodyContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: row;
+    /*Box Model*/
+    height: 93vh;
+    width: 100%;
+    border: 3px solid map.get($colors, "secondary");
+    border-radius: 25px;
+    overflow: hidden;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}

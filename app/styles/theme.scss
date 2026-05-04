@@ -66,6 +66,23 @@ html {
     /*Pseudo-classes*/
 }
 
+@mixin normal-text {
+    /*Positioning*/
+    /*Box Model*/
+    margin: 5px 0;
+    /*Color*/
+    /*Typography*/
+    font-size: 15px;
+    font-weight: normal;
+    font-family: $font-primary;
+    /*Cursor*/
+    -webkit-user-select: none;
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;
+    /*Pseudo-classes*/
+}
+
 @mixin link {
     /*Positioning*/
     /*Box Model*/

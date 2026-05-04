@@ -1,5 +1,6 @@
 @use './theme.scss' as *;
 @use 'sass:map';
+@use 'sass:color';
 
 .containerWrapper {
     /*Positioning*/
@@ -27,6 +28,7 @@
     width: 200px;
     padding: 9px;
     border-right: 3px solid map.get($colors, "secondary");
+    overflow: hidden;
     /*Color*/
     /*Typography*/
     /*Cursor*/
@@ -127,9 +129,31 @@
 
 .middleContainer {
     /*Positioning*/
-
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     /*Box Model*/
     width: 100%;
+    min-height: 0;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.noteContainer {
+    /*Positioning*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /*Box Model*/
+    width: calc(100% + 18px);
+    margin-left: -9px;
+    min-height: 0;
+    overflow: hidden;
     /*Color*/
 
     /*Typography*/
@@ -143,8 +167,8 @@
     /*Positioning*/
 
     /*Box Model*/
-    margin-left: -9px;
-    width: 100%;
+    //margin-left: -9px;
+    //width: inherit;
     padding: 8px 9px;
     /*Color*/
     background-color: map.get($colors, "secondary");
@@ -176,8 +200,8 @@
     display: flex;
     justify-content: space-between;
     /*Box Model*/
-    width: 100%;
-    margin-left: -9px;
+    //width: 100%;
+    //margin-left: -9px;
     padding: 8px 9px;
     /*Color*/
     background-color: map.get($colors, "accent");
@@ -215,6 +239,66 @@
     /*Cursor*/
     cursor: pointer;
     /*Pseudo-classes*/
+}
+
+.noteListContainer {
+    /*Positioning*/
+    flex: 1;
+    /*Box Model*/
+    //width: calc(100% + 18px);
+    //margin-left: -9px;
+    overflow-y: auto;
+    padding-bottom: 70px;
+    /*Color*/
+
+    /*Typography*/
+
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+    &::-webkit-scrollbar-track {
+        background-color: map.get($colors, "dark");
+        border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: color.adjust(map.get($colors, "accent"), $alpha: -0.8);
+        border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: color.adjust(map.get($colors, "accent"), $alpha: -0.3);
+        border-radius: 0;
+    }
+}
+
+.noteCard {
+    /*Positioning*/
+
+    /*Box Model*/
+    //width: calc(100% + 8px);
+    padding: 5px;
+    border-bottom: 3px solid map.get($colors, "accent");
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*Color*/
+    background-color: map.get($colors, "dark");
+    color: map.get($colors, "light");
+    /*Typography*/
+    
+    /*Cursor*/
+    cursor: pointer;
+    /*Pseudo-classes*/
+}
+
+.noteTitle {
+    /*Positioning*/
+
+    /*Box Model*/
+    /*Color*/
+    /*Typography*/
+    @include normal-text;
+    /*Cursor*/
+
+    /*Pseudo-classes*/ 
 }
 
 .footerContainer {

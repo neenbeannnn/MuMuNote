@@ -16,7 +16,9 @@ export default function UploadNote() {
     const [uploadStage, setUploadStage] = useState<UploadStageType | null>(null);
     const [error, setError] = useState<string | null>(null);
     const {user} = useUser(); //grab user info
+    const router = useRouter();
     const {notebookId} = useParams(); //grab notebookId to upload note to
+    const [noteId, setNoteId] = useState<string | null>(null);
     
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -133,7 +135,7 @@ export default function UploadNote() {
                 .select("note_id")
                 .single();
             if (noteError) throw new Error(noteError.message);
-            const note_id = noteData.note_id;
+            setNoteId(noteData.note_id);
 
             //Perform OCR on each page using extractPDFContent()
             setUploadStage(UploadStageType.EXTRACTING);
@@ -163,12 +165,14 @@ export default function UploadNote() {
             });
 
             //TODO navigate to the note
+
+            setUploadStage(UploadStageType.DONE);
+
         } catch (err: any) {
             console.error(err);
             setError("Something went wrong. Please try again.");
             setUploadStage(null);
         }
-        setUploadStage(UploadStageType.DONE);
     }
 
     return <div className={styles.popup}>
@@ -221,11 +225,12 @@ export default function UploadNote() {
             form="upload-file-form"
             onClick={handleFileUpload}
         />}
-        {uploadStage == "done" &&
+        {uploadStage == UploadStageType.DONE &&
             <FormButton 
                 value="Start taking notes!"
                 name="go-to-notes-button"
                 form="upload-file-form"
+                onClick={() => router.push(`/notes/${notebookId}/${noteId}`)}
             />
         }
     </div>

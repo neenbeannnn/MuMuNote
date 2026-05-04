@@ -123,6 +123,34 @@
     /*Pseudo-classes*/ 
 }
 
+.uploadStageText {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "light");
+    /*Typography*/
+    @include heading-3;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
+.errorText {
+    /*Positioning*/
+
+    /*Box Model*/
+
+    /*Color*/
+    color: map.get($colors, "accent");
+    /*Typography*/
+    @include heading-3;
+    /*Cursor*/
+
+    /*Pseudo-classes*/
+}
+
 .blankNoteText {
     /*Positioning*/
 

@@ -30,8 +30,13 @@ export default function MyNotebooksView() {
 
     return <div className={styles.pageContainer}>
         <div className={styles.bodyContainer}>
-            <LeftPanel/>
-            <CenterPanel currentView={currentView}/>
+            <LeftPanel
+                view="notebooks"
+            />
+            <CenterPanel 
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+            />
         </div>
     </div>;
 }
