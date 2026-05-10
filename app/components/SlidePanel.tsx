@@ -116,7 +116,7 @@ export default function SlidePanel({noteTitle, slideImages, slides, noteId, onSl
                             }}
                         />
                         <div className={styles.editorContainer}>
-                            <p className={styles.editorPlaceholder}>Type your notes here...</p>
+                            <textarea className={styles.editorPlaceholder} placeholder="Type your notes here"></textarea>
                         </div>
                     </div>
                 ))}
