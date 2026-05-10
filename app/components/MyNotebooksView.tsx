@@ -4,15 +4,24 @@ import {ViewType} from "../types/ViewType";
 import {useEffect, useState} from "react";
 import {useUser} from '../context/UserContext';
 import {supabase} from "../lib/supabaseClient";
+import {useRouter} from "next/navigation";
 import LeftPanel from './LeftPanel';
 import CenterPanel from './CenterPanel';
 
 export default function MyNotebooksView() {
-    const {user} = useUser();
+    const {user, loading} = useUser();
     const [username, setUsername] = useState<string | null>(null);
+    const router = useRouter();
 
     //uses the enum ViewType
     const [currentView, setCurrentView] = useState<ViewType>(ViewType.NOTEBOOK);   
+
+    //redirect unauthenticated users
+    useEffect(() => {
+        if(!loading && !user) {
+            router.push("/login");
+        }
+    }, [user, loading]);
 
     useEffect(() => {
         const fetchProfile = async () => {
